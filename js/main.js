@@ -1,3 +1,5 @@
+import 'scss/styles.scss';
+
 const links = [
     {
       label: "Week1 notes",
