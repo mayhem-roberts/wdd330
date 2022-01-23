@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div id="dice"></div>
+    </div>
+
+    <script>
+
+        // dice object to show the use of keyword - this 
+        const dice = {
+            sides: 6,
+            roll() {
+                return Math.floor(this.sides * Math.random()) + 1
+            }
+        }
+        document.getElementById("dice").innerHTML = `You rolled a ${dice.roll()}`;
+        //console.log(dice.roll())
+
+        // Date Object
+        const today = new Date();
+        console.log(today.toDateString());
+        // getter methods
+        console.log((today.getDay())); 
+
+    </script>
+</body>
+</html>
