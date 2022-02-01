@@ -1,4 +1,5 @@
-import 'scss/styles.scss';
+
+
 
 const links = [
     {
