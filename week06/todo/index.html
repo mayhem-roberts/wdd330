@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
     <title>To Do List</title>
 </head>
 <body>
-    <div>
+    <div id="todo-list">
         <h1>Todos</h1>
 
         <ul class="tasks"></ul>
 
-        <form class="add-task">
+        <div class="task-inputs">
             <input type="text" id="entry" value="">
-            <input type="submit" value="+">
-        </form>
-        
-
+            <input type="submit" id="submitButton" value="+">
+        </div>    
         <div class="buttons">
             <div id="task-count"></div>
             <button id="all-tasks">All</button>
