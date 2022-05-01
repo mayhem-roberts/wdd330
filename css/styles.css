@@ -1,36 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,500;1,200&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Shadows+Into+Light&display=swap');
 body {
     display: grid;
     place-items: center;
 }
-
-.boxes {
+section {
     display: grid;
-    justify-content: center;
-    align-content: center;
-    gap: 4px;
-    grid-auto-flow: column;
+    position: relative;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(4, 1fr);
 }
-
-.box {
-    width: 200px;
-    height: 200px;
-    background-color: navy;
-    display: grid;
+.background-img {
+    grid-column: 1 / -1;
+    grid-row: 1/ -1;
 }
-.box:hover {
-    background-color: crimson;
+.sticky-note {
+    background-color: lemonchiffon;
+    grid-column: 8 / 12;
+    grid-row: 1;
+    margin-top: 20%;
+    padding: 5%;
+    box-shadow: 0 10px 10px 2px rgba(0,0,0,0.3);
+    column-count: 1;
+}
+img {
+    max-height: 98vh;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 a {
     text-decoration: none;
-    color: whitesmoke;
-    font-family: 'Roboto Mono', monospace;
-    place-self: center;
+    color: black;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 1.2rem;
 }
 
 h1 {
-    font-family: 'Roboto Mono', monospace;
-    place-self: center;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+h2 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
 }

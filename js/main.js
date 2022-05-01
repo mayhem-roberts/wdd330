@@ -1,17 +1,37 @@
-
-
-
-const links = [
+function weekList() {
+  const links = [
     {
-      label: "Week1 notes",
-      url: "week1/index.html"
+      label: "- Week01",
+      url: "week01/index.html"
     },
     {
-      label: "Week2 notes",
-      url: "week2/index.html"
+      label: "- Week02",
+      url: "week02/index.html"
     },
     {
-      label: "Week3 notes",
-      url: "week3/index.html"
+      label: "- Week03",
+      url: "week03/index.html"
     }
   ]
+
+  links.forEach(w => {
+    let li = document.createElement("li");
+    let a = document.createElement("a");
+
+    let label = document.createTextNode(w.label);
+    console.log
+
+    a.appendChild(label);
+    a.setAttribute("href", w.url);
+
+    li.appendChild(a);
+
+    let list = document.getElementById("list");
+    list.appendChild(li);
+  })
+}
+
+// call function
+weekList();
+
+
