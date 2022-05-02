@@ -5,19 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css\styles.css">
-    <title>WDD 330 - Week 1</title>
+    <title>WDD 330 - Week 2</title>
 </head>
 <body>
-
-    <div class="heading"></div>
-        <h1>Week 03 Examples and Notes</h1>
+    <h1>Week 02 Notes and Exercises</h1>
+    <h2>Notes:</h2>
+    <div>
+        <h3>Chapter 3: Arrays, Logic, and Loops</h3>
+        <p>Arrays: ordered list of values, special built in object not a primitive value. Destructuring = taking values out of an array and presenting them as an individual value. Array properties and Methods: array.length, returns length of and array, can also be used as part of the index to find the last item. Array.pop() removes last item in array, array.shift() removes the first item, array.push appends a new item to the end, array.unshift() appends an item to the beginning. Array.splice(4,0,”new value”) inserts a value at the specified index, zero elements are removed by the zero as the second argument, a 1 removes the value already there. </p>
+        <p>Logic: Logical conditions help you control the flow of a program. If statement: code inside the statement block will run if the conditions given are met. Else statements add to If statements by providing another block of conditions and code to run if conditions are met. A switch statement can be used in place of If Else statements to make code with lots of conditions to test easier to follow. </p>
+        <p>Loops: Loops repeat a block of code until conditions are met. While loop: while (condition) {do something}; While loops can run infinitely if conditions cannot be met. For loops, most common loop used in JS: for (initialization; condition; after) {do something}; Initialization runs before the loop starts, conditions has to be satisfied before it runs again, after is what is done after each iteration of the loop. For loop is nice and cleaner because it keeps all the details of the loop in one place. </p>
     </div>
-    <section class="boxes">
-        <div class="box"><a href="examples.html">Examples</a></div>
-    </section>
-    <section class="boxes">
-        <div class="box"><a href="team.html">Team</a></div>
-    </section>
+    <div>
+        <h3>Chapter 4: Functions</h3>
+        <p>A function is a block of code that can be by name, is like a mini program to be run. Common function declarations starts with function followed by the name: function functionName() {code}. Function expression assigns an anonymous function to a variable: var functionName = function() {code}; this type does not have a function name just an assigned variable name. </p>
+        <p>Parameters and Arguments: function parameters are set when a function is created, arguments are provided when a function is called/invoked. If there is no argument provided for the parameter when the function is called it will be given a value of undefined. </p>
+        <p>Callbacks: a function passed as an argument to another function. </p>
+    </div>
+
+    <h2>Exercises</h2>
+    <div><a href="drum-kit/index.html">Drum Kit</a></div>
+    <p>Callback exercise in JS</p>
     
+    <h2>Team</h2>
+        <div class="box"><a href="team.html">Team</a></div>  
+
+
+    <script>
+        // callback 
+        function sing(song, artist, callback) {
+            console.log(`I'm singing ${song} by ${artist}!`);
+        }
+        function dance() {
+            console.log("Dance dance");
+        }
+        sing("Butter", "BTS", dance);
+
+    </script>
 </body>
 </html>
