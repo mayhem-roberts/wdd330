@@ -19,3 +19,6 @@ a {
 a:hover {
     color: fuchsia;
 }
+#dice {
+    font-family: 'Shadows Into Light', cursive;
+}

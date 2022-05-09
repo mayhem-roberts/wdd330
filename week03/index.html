@@ -12,11 +12,15 @@
     <h2>Notes:</h2>
     <div>
         <h3>Chapter 5: Objects</h3>
-        <p></p>
+        <p>Object literals: self-contained set of related values and functions. If a property’s value is a function it is known as a method. JS objects are similar to other languages Hash or associative array or the JS Map. Are able to inherit properties similar to oop languages.  Is created by wrapping all its properties and methods in {}. Key value pairs, object.keys() to get a list of the keys, object.entries() to get the values. Nested objects are possible, access them by referencing their name: object.nestedObject.key. Objects can be passed in as function parameters, allows arguments to be passed in by name and in any order.</p>
+        <p>This: refers to the object within, it can be used inside a method to get access to the to the objects properties.</p>
     </div>
     <div>
         <h3>Chapter 6: Document Object Model</h3>
-        <p></p>
+        <p>The Document Object Model, or DOM, allows you to access elements of a webpage(html), enables interaction adding, removing, changing content, order or attributes of elements, can even alter styling. </p>
+        <p>Node list are similar to array you can find items by index number and use the length property but no other properties will work. You can turn a node list into an array using Array.from() method.</p>
+        <p>Get elements by id assigned to them in HTML: document.getElementById(‘idName’); also variations like getElementByTagName(), getElementByClassName().</p>
+        <p>Query selectors: document.querySelector() and document.querySelectorAll()</p>
     </div>
     <div>
         <h3>Chapter 7: Events</h3>
@@ -24,15 +28,29 @@
     </div>
 
     <h2>Exercises</h2>
-    <div><a href=""></a></div>
+    <div><a href="clock/index.html">Clock Exercise</a></div>
     <p>Exercise in JS</p>
+    <div id="dice"></div>
     
     <h2>Team</h2>
         <div class="box"><a href="team.html">Team</a></div>  
 
-
     <script>
+        // dice object to show the use of keyword - this 
+        const dice = {
+            sides: 6,
+            roll() {
+                return Math.floor(this.sides * Math.random()) + 1
+            }
+        }
+        document.getElementById("dice").innerHTML = `You rolled a ${dice.roll()}`;
+        //console.log(dice.roll())
 
+        // Date Object
+        const today = new Date();
+        console.log(today.toDateString());
+        // getter methods
+        console.log((today.getDay())); 
     </script>
 </body>
 </html>
