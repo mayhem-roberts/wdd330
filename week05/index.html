@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css\styles.css">
+    <title>WDD 330 - Week 5</title>
+</head>
+<body>
+    <h1>Week 05 Notes and Exercises</h1>
+    <h2>Notes:</h2>
+    <div>
+        <h3>Chapter 10: Debugging</h3>
+        <p>System Error - problem occurs with system or external devices the program interacts with.<br> 
+            Programmer Error - program has incorrect syntax or faulty logic, things like a typo or missing syntax can cause this.<br>
+            User Error – the user has entered data in wrong so the program cannot proceed. </p>
+        <p>Exceptions return a value that can help deal with the issue. Stack traces give the sequence of error and lines that it occurred. Warnings happen id there is an error in the code but not a big enough issue to stop the program from running. Not all browsers show the same warnings as others. </p>
+        <p>Strict mode gives more exceptions and warnings, must be put at the top of the script can also be added to a function so it only effects whatever is inside. Gives more detail to what is wrong.</p>
+        <p>Debugging in the browser, use break point to run through parts of the code. Helpful because the bug does not usually originate at the error.</p>
+        <p>The alert method can be placed at different parts in the program to help with debugging, it will show an alert and stop the program until the OK is clicked.</p>
+        <p></p>
+    </div>
+
+    <h2>Exercises</h2>
+    <div><a href=""></a></div>
+    <p>Exercise in JS</p>
+    
+    <h2>Team</h2>
+        <div class="box"><a href="hike/index.html">Team</a></div>  
+
+    <script>
+        'use strict'; // strict mode
+        //pi = 3.142; // strict mode example: pi is not defined
+
+        // alert method 
+        function oldEnoughAlert(age) {
+            if(age = 12) {
+                //alert(age);
+                return "No, sorry";
+            }else if( age < 18) {
+                return "only if you are accompanied by an adult.";
+            }else {
+                return "You can come in.";
+            }
+        }
+        oldEnoughAlert(21);
+
+        // consol log
+        function oldEnoughLog(age) {
+            console.log(age);
+            if(age = 12) {
+                return "No, sorry";
+            }else if( age < 18) {
+                return "only if you are accompanied by an adult.";
+            }else {
+                return "You can come in.";
+            }
+        }
+        console.log(oldEnoughLog(21));
+         
+    </script>
+</body>
+</html>

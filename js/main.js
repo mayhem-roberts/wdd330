@@ -11,6 +11,18 @@ function weekList() {
     {
       label: "- Week03",
       url: "week03/index.html"
+    },
+    {
+      label: "- Week04",
+      url: "week04/index.html"
+    },
+    {
+      label: "- Week05",
+      url: "week05/index.html"
+    },
+    {
+      label: "- Week06",
+      url: "week06/index.html"
     }
   ]
 

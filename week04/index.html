@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css\styles.css">
+    <title>WDD 330 - Week 4</title>
+</head>
+<body>
+    <h1>Week 04 Notes and Exercises</h1>
+    <h2>Notes:</h2>
+    <div>
+        <h3>Chapter 8: Forms</h3>
+        <p>Form properties and methods: form.reset() sets all form controls back to initial values set in the HTML. Form.submit() submits it automatically, does not trigger the submit event. </p>
+        <p>Form events: the focus event occurs when the element is focused on, an input element if focused when the pointer is inside the element. Blur event occurs when the focus is away from the specified element. Change event happens when focus is away from the element after changing it, nothing will occur if focus is removed without change. </p>
+        <p>Input fields: text input fields include, text, password, checkbox, and radio.</p>
+        <p>Select drop-down List: used for when multiple options are needed, if you needed a user to choose one in a set of values this would be useful. Use the HTML attribute select and assign a name and id, use the option attributes tag and assign the value. </p>
+    </div>
+    <div>
+        <h3>Chapter 12: OOP</h3>
+        <p></p>
+    </div>
+    <div>
+        <h3>Chapter 15: Modern Javascript</h3>
+        <p></p>
+    </div>
+
+    <h2>Exercises</h2>
+    <div>
+        <p>Exercise in JS</p>
+        <div id="dice1"></div>
+        <div id="dice2"></div>
+    </div>
+    
+    
+    <h2>Team</h2>
+        <div class="box"><a href="ticTacToe/team.html">Team</a></div>  
+
+    <script>
+        /*
+        // OOP JS novice to ninja chap 12
+        // dice constuctor function -- capitalize constructor functions, and parameter if needed
+        const Dice = function(sides) {
+            this.sides = sides;
+            this.roll = function() {
+                return Math.floor(this.sides * Math.random()) + 1
+            }
+        }
+        */
+            
+        // Dice class  
+        class Dice {
+            // constructor
+            constructor(sides) {
+                this.sides = sides;
+            }
+            // is roll called a method now or still a function??
+            roll() {
+                return Math.floor(this.sides * Math.random() + 1);
+            }
+            // static method - not a funtion can only be called by the class not by instances of the class like sixDice
+            static description() {
+                return 'A way of choosing random numbers';
+            }
+        }
+        // static method of Dice
+        console.log(Dice.description()); 
+
+        // create an instance of the dice constructor
+        const sixDice = new Dice(6);
+        const twentyDice = new Dice(20);
+
+        // All objects have a constructor property that returns the constructor function that created it
+        // console.log(sixDice.constructor)
+
+        // print to html divs
+        document.getElementById("dice1").innerHTML = `You rolled a ${sixDice.roll()}`;
+        document.getElementById("dice2").innerHTML = `You rolled a ${twentyDice.roll()}`;
+
+        // class turtle
+        class Turtle {
+            constructor(name) {
+                this.name = name;
+                }
+            sayHi() {
+                return `Hi dude, my name is ${this.name}`;
+            }
+
+            swim() {
+                return `${this.name} paddles in the water`;
+            }
+        }
+        // class ninjaturtle extends to turtle because it is a type of turtle but needs more added
+        class NinjaTurtle extends Turtle {
+            constructor(name, color) {
+                super(name);
+                this.weapon = 'hands';
+                // private property
+                let _color = color;
+                // getter and setters
+                this.setColor = (color) => {
+                    // allows for checks to be made before it's set
+                    if(typeof color === 'string'){
+                        return _color = color;
+                        } else {
+                            throw new Error('Color must be a string');
+                        }
+                    }
+                    this.getColor = () => _color;
+            }
+            attack() {
+                return `Feel the power of my ${this.weapon}!`;
+            } 
+        }
+        // intance of turtle - leo
+        const leo = new Turtle("Leonardo", "blue");
+
+        // creating a new method in turtle with prototype
+        Turtle.prototype.attack = function(){
+            return `Feel the power of my ${this.weapon}!`;
+        }
+        // calling prototype attack
+        console.log(leo.attack());
+
+        // add or change properties
+        Turtle.prototype.food = 'pizza';
+
+        Turtle.prototype.eat = function() {
+            return `Mmm, this ${this.food} tastes great!`;
+        }
+        console.log(leo.eat());
+
+        leo.weapon = "axe";
+        console.log(leo.attack());
+        //console.log(leo.getColor());
+    </script>
+</body>
+</html>

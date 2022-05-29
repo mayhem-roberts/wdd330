@@ -1,0 +1,28 @@
+
+.board {
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cell {
+    width: 200px;
+    height: 200px;
+}
+
+#cell1, #cell2, #cell4, #cell5 {
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
+}
+#cell6, #cell3 {
+    border-bottom: 3px solid black;
+}
+#cell7, #cell8 {
+    border-right: 3px solid black;
+}
+
+button {
+    display: block;
+}
