@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Shadows+Into+Light&display=swap');
+        header, 
+        main,
+        .container,
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            font-family: 'Shadows Into Light', cursive;
+            font-size: 1.5rem;
+        }
+        .box {
+            width: 10rem;
+            height: 10rem;
+            margin: 2rem;
+            background-color: rgb(255, 196, 184);
+        }
+        #one:hover {
+            transform: translateX(-45px) scale(1.5);
+        }
+        #two:hover {
+            transform: scale(0.5);
+            transition-duration: 1s;
+        }
+        #three:hover {
+            transform: scale(1.5, 0.7);
+        }
+        #four span:hover {
+            transform: scale(5);
+        }
+        #five:hover {
+            transform: rotate(90deg);
+            transform-origin: 0;
+        }
+        #six:hover {
+            transform: skew(15deg, 4deg);
+        }
+
+
+        h1 {
+            font-family: 'Permanent Marker', cursive;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Week 08 Exercises</h1>
+    </header>
+    <main>
+        <section class="container">
+            <div class="box" id="one">ONE</div>
+            <div class="box" id="two">Two</div>
+            <div class="box" id="three">THREE</div>
+            <div class="box" id="four"><span>FOUR</span></div>
+            <div class="box" id="five">FIVE</div>
+            <div class="box" id="six">SIX</div>
+        </section>
+    </main>
+</body>
+</html>

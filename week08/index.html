@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css\styles.css">
+    <title>WDD 330 - Week 8</title>
+</head>
+<body>
+    <main>
+        <h1>Week 08 Notes and Exercises: <span>HTML5 & CSS3 FOR THE REAL WORLD: 2ND EDITION</span></h1>
+        <h2>Notes:</h2>
+        <div>
+            <h3>Chapter 8: CSS3 Transforms and Transitions</h3>
+            
+            <p>Transforms:<br>Allow you to translate, rotate, scale, and skew html elements. Can all be done in CSS without needing JavaScript as it used to for movement. The transform property contains one or more transform function, each function separated by a space. Only declare the transform function once as having more than one assigned to an element will overwrite the first ones.<br> 
+            <p>Transform functions include:<br>Translate functions, moves an element on the x and y axis, eg: translate(45px, -45px); To only move an element on the Y or X axis you use translateY() or translateX().<br>
+            Scale functions enlarge or shrink an element using values for the Y and X axis, it still maintains the original aspect ratio of the element and has no impact on the document flow or layout. Giving a single value will apply it to both X and Y, scale(1) stays the same, scale(2) doubles the size, and scale(0.5) halves it. <br>
+            Rotate function turns the element by the specified degree value, like scale the default origin is the center of the element, eg: rotate(10deg).<br>
+            Skew function skews element along the X and Y axis, eg: transform: skew(15deg, 4deg);</p>
+            <p>Changing the origin of the transform: the standard origin of a transform function if the center of the element. This can be changed by using the transform-origin property</p>
+             
+            <p>Transitions:<br>Animations are possible with CSS and require less client-side processing making them appear smoother, this is especially great for mobile devices because it requires less computing power than JavaScript animations. Transitions allow for animation over time, you can rotate and element as a slower speed so you can see it turn or fade a color in and out on a hover.<br>
+            Transition functions are transition-property, transition-duration, transition-timing-function, and transition-delay.<br>
+            Transition-property function defines the css properties that should be transitioned, things like transform, width, color, border-style.<br>
+            Transition-duration function sets how long the transition will last, eg: transition-duration: 0.2s; can be written in s(seconds) or ms(milliseconds).<br>
+            Transition-timing-function allows you to control the pace of a transition, you can have a transition start slow and then speed up, and any variation you want. There are common timing values used ease, linear, ease-in, ease-out, or ease-in-out. Ease is the default, starts slow speeds up and then slows down at the end, ease-in-out similar to ease but starts faster. Ease-in is slow to start then speeds up and stops abruptly, Ease-out is the opposite.</p>
+        
+        </div>
+        <div>
+            <h3>Chapter 12: Canvas, SVG, and Drag and Drop</h3>
+            
+            <p></p>
+        </div>
+
+        <h2>Exercises</h2>
+        <div><a href="exerscises.html">Transform and Transitions</a></div>
+        
+        <h2>Team</h2>
+            <div class="box"><a href="team/index.html">Star Wars API</a></div>  
+
+    </main>
+
+    <script>
+         
+    </script>
+</body>
+</html>

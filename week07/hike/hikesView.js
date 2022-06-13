@@ -1,73 +1,48 @@
-// the dataset only has a relative path in it...we need more to find the images...so we have a path variable below. Why isn't this in the model object? What advantages or disadvantages are there to having it here instead of as part of the View object?
-const imgBasePath = '//byui-cit.github.io/cit261/examples/';
+// The controller needs access to both the model and the view...so let's import them
+import HikeModel from './hikeModel.js';
+import HikesView from './hikesView.js';
+//  we also need the new comments class to add that functionality
+import Comments from './comments.js';
 
-// since we have multiple methods we need to export, it would make sense to group them together with an object of some sort. This could be as simple as an object literal...or more complex as a class.
-
-class HikesView {
-  renderHikeList(hikeListElement, hikeList) {
-    // I decided to let the controller handle where the list gets placed. So instead of getting the element here in the function, when I created the view I decided to pass the target element in.
-    // const hikeListElement = document.getElementById('hikes');
-
-    hikeListElement.innerHTML = '';
-    // the list of hikes doesn't exist here in the view either...so I've passed that in as well.
-    hikeList.forEach(hike => {
-      // notice the call to 'this' below. 'this' is like adding './' at the beginning of a path. It helps the computer find things.
-      hikeListElement.appendChild(this.renderOneHikeLight(hike));
+export default class HikesController {
+  // a class needs a constructor
+  constructor(parentId) {
+    this.parentElement = document.getElementById(parentId);
+    this.hikeModel = new HikeModel();
+    this.hikesView = new HikesView(parentId);
+    //add an instance of our comments class to the controller
+    this.comments = new Comments('hikes', 'comments');
+  }
+  showHikeList() {
+    const hikeListElement = this.parentElement;
+    // the list of hikes will come from the model now...
+    const hikeList = this.hikeModel.getAllHikes();
+    // send the list of hikes and the element we would like those placed into to the view.
+    this.hikesView.renderHikeList(hikeListElement, hikeList);
+    // after the hikes have been rendered...add our listener
+    this.addHikeListener();
+    // show comments
+    this.comments.showCommentList();
+  }
+  showOneHike(hikeName) {
+    const hike = this.hikeModel.getHikeByName(hikeName);
+    this.hikesView.renderOneHikeFull(
+      this.parentElement,
+      hike
+    ).ontouchend = () => {
+      this.showHikeList();
+    };
+    // show the comments for just this hike
+    this.comments.showCommentList(hikeName);
+  }
+  // in order to show the details of a hike ontouchend we will need to attach a listener AFTER the list of hikes has been built. The function below does that.
+  addHikeListener() {
+    // We need to loop through the children of our list and attach a listener to each, remember though that children is a nodeList...not an array. So in order to use something like a forEach we need to convert it to an array.
+    const childrenArray = Array.from(this.parentElement.children);
+    childrenArray.forEach(child => {
+      child.addEventListener('touchend', e => {
+        this.showOneHike(e.currentTarget.dataset.name);
+      });
     });
   }
-  renderOneHikeLight(hike) {
-    const item = document.createElement('li');
-    item.classList.add('light');
-    // setting this to make getting the details for a specific hike easier later.
-    item.setAttribute('data-name', hike.name);
-    item.innerHTML = ` <h2>${hike.name}</h2>
-    <div class="image"><img src="${imgBasePath}${hike.imgSrc}" alt="${
-      hike.imgAlt
-    }"></div>
-    <div>
-            <div>
-                <h3>Distance</h3>
-                <p>${hike.distance}</p>
-            </div>
-            <div>
-                <h3>Difficulty</h3>
-                <p>${hike.difficulty}</p>
-            </div>
-    </div>`;
-
-    return item;
-  }
-  renderOneHikeFull(parent, hike) {
-    const backButton = document.createElement('button');
-    backButton.innerHTML = '&lt;- All Hikes';
-    const item = document.createElement('li');
-    item.innerHTML = ` 
-        
-            <img src="${imgBasePath}${hike.imgSrc}" alt="${hike.imgAlt}">
-            <h2>${hike.name}</h2>
-            <div>
-                <h3>Distance</h3>
-                <p>${hike.distance}</p>
-            </div>
-            <div>
-                <h3>Difficulty</h3>
-                <p>${hike.difficulty}</p>
-            </div>
-            <div>
-                <h3>Description</h3>
-                <p>${hike.description}</p>
-            </div>
-            <div>
-                <h3>How to get there</h3>
-                <p>${hike.directions}</p>
-            </div>
-        
-        `;
-    parent.innerHTML = '';
-    item.insertBefore(backButton, item.childNodes[0]);
-    parent.appendChild(item);
-    // send the button back to the controller to attach a listener
-    return backButton;
-  }
 }
-export default HikesView;
