@@ -1,12 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Shadows+Into+Light&display=swap');
-
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+header,
+main,
+footer {
+    max-width: 80vw;
+}
+header,
+footer {
+    background-color: black;
+    min-height: 10vh;
+}
 h1,
 h2,
-h3 {
+h3,
+h4 {
     font-family: 'Permanent Marker', cursive;
 }
 
-p {
+p,
+span {
     font-family: 'Shadows Into Light', cursive;
     font-size: 1.15rem;
 }
@@ -18,7 +35,4 @@ a {
 }
 a:hover {
     color: fuchsia;
-}
-#dice {
-    font-family: 'Shadows Into Light', cursive;
 }

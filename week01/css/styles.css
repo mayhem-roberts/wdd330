@@ -1,36 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,500;1,200&display=swap');
-
-body {
-    display: grid;
-    place-items: center;
-}
-
-.boxes {
-    display: grid;
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Shadows+Into+Light&display=swap');
+body{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-content: center;
-    gap: 4px;
-    grid-auto-flow: column;
+    align-items: center;
+}
+header,
+main,
+footer {
+    max-width: 80vw;
+}
+header,
+footer {
+    background-color: black;
+    min-height: 10vh;
+}
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Permanent Marker', cursive;
 }
 
-.box {
-    width: 200px;
-    height: 200px;
-    background-color: navy;
-    display: grid;
+p,
+span {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 1.15rem;
 }
-.box:hover {
-    background-color: crimson;
-}
-
 a {
     text-decoration: none;
-    color: whitesmoke;
-    font-family: 'Roboto Mono', monospace;
-    place-self: center;
+    color: black;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 1.2rem;
 }
-
-h1 {
-    font-family: 'Roboto Mono', monospace;
-    place-self: center;
+a:hover {
+    color: fuchsia;
 }
