@@ -43,6 +43,10 @@ function weekList() {
     {
       label: "- Week11",
       url: "week11/index.html"
+    },
+    {
+      label: "- Weather App",
+      url: "weather/index.html"
     }
   ]
 

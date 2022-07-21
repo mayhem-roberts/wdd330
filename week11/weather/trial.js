@@ -1,3 +1,30 @@
+// -------------------------------- Selectors --------------------------------
+const submitButton = document.querySelector(".submitButton");
+
+//--------------------------------- Listeners -------------------------------
+
+// fetch weather location
+submitButton.addEventListener("click", function() {
+    // stop form from submitting
+    event.preventDefault();
+
+    var location = document.querySelector(".input");
+    const APIKEY = "22b3edccab117440bdc47835f3f06a5e";
+    var URL = `https://api.openweathermap.org/data/2.5/forecast?q=${location.value}&APPID=${APIKEY}&units=imperial`;
+
+    fetch(URL)
+    .then((response) => response.json())
+    .then(data => console.log(data))
+
+    .catch(err => alert("Not a location"))
+});
+
+if(localStorage.getItem("locations") === null) {
+    this.locations;
+}else {
+    this.locations = JSON.parse(localStorage.getItem("locations"));
+}
+
 const APIKEY = `22b3edccab117440bdc47835f3f06a5e`;
 const URL = `https://api.openweathermap.org/data/2.5/forecast?APPID=${APIKEY}&units=imperial`;
 
@@ -39,34 +66,21 @@ class Forecast {
         .then((response) => response.json())
         // console log json data
         console.log(data);
-        return data;
+
+        this.list = data.list;
+        return this.list;
     }
     async display(container) {
-        const data = await this.getForecast();
+        const list = await this.getForecast()
 
-        const forecast = data.list.filter(x => x.dt_txt.includes('18:00:00'));
-        const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-
-        const forecastStn = document.createElement("section");
-        forecastStn.className = "forecast-stn"
-        forecastStn.innerHTML = 
+        const forecastCtr = document.createElement("div");
+        forecastCtr.className = "forecast-ctr"
+        forecastCtr.innerHTML = 
+        `<span class="temp">${list[0].main.temp}&deg F<span>
+         <span class="location-name">${this.name}<span>
+         <button class="delete">x</button>
         `
-        <div class="location-name">${data.city.name}, ${data.city.country}</div>
-        `
-        for (let i = 0; i < forecast.length; i++) {
-            let date = new Date(forecast[i].dt_txt);
-            console.log(date);
-
-            const forecastCtr = document.createElement("div");
-            forecastCtr.className = "forecast-ctr"
-            forecastCtr.innerHTML = 
-            `
-            <div class="day">${days[date.getDay()]}</div>
-            <div class="temp">${data.list[i].main.temp}&deg F</div>
-            `
-            container.appendChild(forecastStn);
-            forecastStn.appendChild(forecastCtr);
-        }
+        container.appendChild(forecastCtr);
     }
 }
 
